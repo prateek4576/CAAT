@@ -47,7 +47,7 @@ async function connectDB() {
   try {
     await client.connect();
 
-    db = client.db("myDatabase");
+    db = client.db("CAAT");
 
     console.log("MongoDB Connected ✅");
 
