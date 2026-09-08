@@ -1,6 +1,6 @@
 let sections = [
   {
-    name: "Maths",
+    name: "Maths 🔢",
     questions: [
       { q: "2+2=?", options: ["3", "4", "5", "6"], answer: "4" },
       { q: "5*3=?", options: ["10", "15", "20", "25"], answer: "15" },
@@ -10,7 +10,7 @@ let sections = [
     ],
   },
   {
-    name: "Science",
+    name: "Science 🔬",
     questions: [
       {
         q: "Water formula?",
@@ -40,7 +40,7 @@ let sections = [
     ],
   },
   {
-    name: "Aptitude",
+    name: "Aptitude 🧠",
     questions: [
       {
         q: "If a train travels 60 km in 1 hour, speed?",

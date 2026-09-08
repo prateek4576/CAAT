@@ -2,12 +2,10 @@
 <html>
   <head>
     <title>Login - Aptitude Tool</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 
     <style>
+
       h1,
       h2,
       h3 {
@@ -79,7 +77,7 @@
 
       .hero h1 {
         font-size: 36px;
-        color: #1e293b; /* dark heading */
+         color: #1e293b; /* dark heading */
       }
 
       .hero p {
@@ -110,8 +108,9 @@
       .form-box h2 {
         margin-bottom: 20px;
         color: blue;
-        font-size: 28px;
       }
+
+
 
       input {
         width: 100%;
@@ -150,7 +149,7 @@
 
       .extra-links {
         margin-top: 15px;
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .extra-links a {
@@ -232,7 +231,7 @@
       /* ========================= */
       @media (min-width: 1200px) {
         .hero h1 {
-          font-size: 50px;
+          font-size: 40px;
         }
 
         .hero p {
@@ -315,9 +314,7 @@
         text-align: left;
         margin-top: 15px;
         /* margin-bottom: 5px; */
-        font-family: "Fredoka One", cursive;
-        font-weight: 400;
-        letter-spacing: 0.5px;
+        font-weight: 600;
         color: #2c3e50;
         font-size: 14px;
       }
@@ -326,9 +323,11 @@
         color: #e2e8f0;
       }
 
+    
+
       /* TOP FOOTER */
       .top-footer {
-        background: rgba(255, 255, 255, 0.85);
+        background: #f4f6f9;
         padding: 60px 100px 30px;
         margin-top: 40px;
         border-top: 1px solid #e2e8f0;
@@ -408,55 +407,6 @@
         text-align: center;
         padding: 15px;
       }
-
-      
-      /* Fix full page height */
-html, body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Make main content take full space */
-.container {
-  flex: 1; /* pushes footer down */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Improve mobile alignment */
-@media (max-width: 600px) {
-  
-  body {
-    min-height: 100vh;
-  }
-
-  .container {
-    flex: 1;
-    padding: 20px;
-    align-items: center;
-  }
-
-  .form-box {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  
-
-  .top-footer {
-    padding: 30px 20px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    text-align: center;
-  }
-}
-
     </style>
   </head>
   <body>
@@ -566,7 +516,6 @@ html, body {
           let data = await res.json();
 
           if (data.status === "success") {
-            localStorage.setItem("userEmail", email);
             window.location.href = "/dashboard.html";
           } else if (data.status === "wrong_password") {
             alert("Incorrect password ❌ Try again");

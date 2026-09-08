@@ -2,10 +2,7 @@
 <html>
   <head>
     <title>Signup - Aptitude Tool</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 
     <style>
       h1,
@@ -110,7 +107,6 @@
       .form-box h2 {
         margin-bottom: 20px;
         color: blue;
-        font-size: 28px;
       }
 
       input {
@@ -150,7 +146,7 @@
 
       .login-link {
         margin-top: 15px;
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .login-link a {
@@ -230,7 +226,7 @@
       /* ========================= */
       @media (min-width: 1200px) {
         .hero h1 {
-          font-size: 50px;
+          font-size: 40px;
         }
 
         .hero p {
@@ -317,9 +313,7 @@
         text-align: left;
         margin-top: 15px;
         /* margin-bottom: 5px; */
-        font-family: "Fredoka One", cursive;
-        font-weight: 400;
-        letter-spacing: 0.5px;
+        font-weight: 600;
         color: #2c3e50;
         font-size: 14px;
       }
@@ -328,9 +322,11 @@
         color: #e2e8f0;
       }
 
+
+
       /* TOP FOOTER */
       .top-footer {
-        background: rgba(255, 255, 255, 0.85);
+        background: #f4f6f9;
         padding: 60px 100px 30px;
         margin-top: 40px;
         border-top: 1px solid #e2e8f0;
@@ -409,59 +405,15 @@
         color: white;
         text-align: center;
         padding: 15px;
+
+        
       }
 
       #matchMsg {
-        font-size: 13px;
-        margin-top: 5px;
-        text-align: left;
-        font-weight: 500;
-      }
-
-      
-      /* Fix full height layout */
-html, body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Push footer down */
-.container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Mobile alignment fix */
-@media (max-width: 600px) {
-
-  body {
-    min-height: 100vh;
-  }
-
-  .container {
-    flex: 1;
-    padding: 20px;
-    align-items: center;
-  }
-
-  .form-box {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .top-footer {
-    padding: 30px 20px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    text-align: center;
-  }
+  font-size: 13px;
+  margin-top: 5px;
+  text-align: left;
+  font-weight: 500;
 }
     </style>
   </head>
@@ -487,11 +439,7 @@ html, body {
       <div class="form-box">
         <h2>Signup ✨</h2>
 
-        <form
-          action="/signup-submit"
-          method="POST"
-          onsubmit="return validatePassword();"
-        >
+        <form action="/signup-submit" method="POST" onsubmit="return validatePassword()">
           <label for="email">Email</label>
           <input
             type="email"
@@ -511,15 +459,15 @@ html, body {
           />
 
           <label for="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            placeholder="Re-enter your password"
-            onkeyup="checkMatch()"
-            required
-          />
+<input
+  type="password"
+  id="confirmPassword"
+  placeholder="Re-enter your password"
+  onkeyup="checkMatch()"
+  required
+/>
 
-          <p id="matchMsg"></p>
+<p id="matchMsg"></p>
 
           <button type="submit">🚀 Create Account</button>
         </form>
@@ -584,33 +532,37 @@ html, body {
       };
 
       // Password validation
-      function validatePassword() {
-        let password = document.getElementById("password").value;
-        let confirmPassword = document.getElementById("confirmPassword").value;
+     function validatePassword() {
+  let password = document.getElementById("password").value;
+  let confirmPassword = document.getElementById("confirmPassword").value;
 
-        if (password !== confirmPassword) {
-          alert("❌ Please write same password in both field");
-          return false;
-        }
+  if (password !== confirmPassword) {
+    alert("❌ Please write same password in both field");
+    return false;
+  }
 
-        return true;
-      }
+  return true;
+}
 
-      function checkMatch() {
-        let password = document.getElementById("password").value;
-        let confirmPassword = document.getElementById("confirmPassword").value;
-        let msg = document.getElementById("matchMsg");
+function checkMatch() {
+  let password = document.getElementById("password").value;
+  let confirmPassword = document.getElementById("confirmPassword").value;
+  let msg = document.getElementById("matchMsg");
 
-        if (confirmPassword === "") {
-          msg.innerText = "";
-        } else if (password === confirmPassword) {
-          msg.innerText = "✅ Password matched";
-          msg.style.color = "green";
-        } else {
-          msg.innerText = "❌ Password not matching";
-          msg.style.color = "red";
-        }
-      }
+  if (confirmPassword === "") {
+    msg.innerText = "";
+  } 
+  else if (password === confirmPassword) {
+    msg.innerText = "✅ Password matched";
+    msg.style.color = "green";
+  } 
+  else {
+    msg.innerText = "❌ Password not matching";
+    msg.style.color = "red";
+  }
+}
+
+
     </script>
   </body>
 </html>
