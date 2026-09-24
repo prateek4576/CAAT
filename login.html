@@ -2,10 +2,12 @@
 <html>
   <head>
     <title>Login - Aptitude Tool</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-
       h1,
       h2,
       h3 {
@@ -30,17 +32,21 @@
         position: sticky;
         top: 0;
         z-index: 1000;
+
         background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(10px); /* glass blur effect */
+        backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        padding: 15px 40px;
+
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-container {
+        min-height: 70px;
+        padding: 0 20px;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
-        color: white;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        padding-left: 100px;
-        padding-right: 100px;
       }
 
       nav h2 {
@@ -77,7 +83,7 @@
 
       .hero h1 {
         font-size: 36px;
-         color: #1e293b; /* dark heading */
+        color: #1e293b; /* dark heading */
       }
 
       .hero p {
@@ -88,10 +94,25 @@
 
       /* Form Section */
       .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+
         display: flex;
         justify-content: center;
         align-items: center;
+
         padding: 50px 20px;
+      }
+
+      .nav-container {
+        height: 70px;
+        min-height: 70px;
+        padding: 0 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
       .form-box {
@@ -109,8 +130,6 @@
         margin-bottom: 20px;
         color: blue;
       }
-
-
 
       input {
         width: 100%;
@@ -176,15 +195,19 @@
       /* 📱 MOBILE (max 600px) */
       /* ========================= */
       @media (max-width: 600px) {
-        nav {
+        .nav-container {
           flex-direction: column;
           align-items: center;
-          padding: 10px;
+          padding: 15px;
         }
 
-        nav h2 {
+        .nav-container h2 {
           margin-bottom: 10px;
-          font-size: 22px;
+          font-size: 20px;
+        }
+
+        nav a {
+          margin: 5px;
         }
 
         .hero h1 {
@@ -223,6 +246,56 @@
 
         .form-box {
           max-width: 350px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .top-footer {
+          padding: 40px 20px 30px;
+          margin-top: 30px;
+        }
+
+        .footer-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px 25px;
+          max-width: 500px;
+          margin: 0 auto;
+          padding: 0;
+        }
+
+        .footer-about {
+          grid-column: 1 / -1;
+          max-width: 100%;
+          text-align: center;
+        }
+
+        .footer-about p {
+          max-width: 380px;
+          margin: 0 auto;
+          line-height: 1.6;
+        }
+
+        .footer-links {
+          min-width: 0;
+          text-align: center;
+        }
+
+        .footer-links h3 {
+          margin-bottom: 12px;
+        }
+
+        .footer-links a {
+          margin-bottom: 8px;
+        }
+
+        footer {
+          padding: 14px 10px;
+        }
+
+        footer p {
+          font-size: 13px;
+          line-height: 1.5;
         }
       }
 
@@ -323,12 +396,10 @@
         color: #e2e8f0;
       }
 
-    
-
       /* TOP FOOTER */
       .top-footer {
         background: #f4f6f9;
-        padding: 60px 100px 30px;
+        padding: 60px 0 30px;
         margin-top: 40px;
         border-top: 1px solid #e2e8f0;
       }
@@ -339,9 +410,9 @@
         align-items: flex-start;
         flex-wrap: wrap;
 
-        max-width: 1300px;
-        margin: auto;
-        padding-bottom: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
       }
 
       /* LEFT */
@@ -407,18 +478,33 @@
         text-align: center;
         padding: 15px;
       }
+
+      .nav-container h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 26px;
+        line-height: 1;
+        font-family: "Fredoka One", cursive;
+        color: rgb(47, 63, 241);
+
+        display: flex;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
     <nav>
-      <h2>🧒 CAAT</h2>
-      <div>
-        <a href="index.html">🏠 Home</a>
-        <a href="about.html">📖 About</a>
-        <a href="contact.html">✉️ Contact</a>
-        <a href="login.html" style="color: #1abc9c">🔑 Login</a>
-        <a href="signup.html">✨ Signup</a>
-        <button id="toggleBtn">🌙</button>
+      <div class="container nav-container">
+        <h2>🧒 CAAT</h2>
+
+        <div>
+          <a href="index.html">🏠 Home</a>
+          <a href="about.html">📖 About</a>
+          <a href="contact.html">✉️ Contact</a>
+          <a href="login.html" style="color: #1abc9c">🔑 Login</a>
+          <a href="signup.html">✨ Signup</a>
+          <button id="toggleBtn">🌙</button>
+        </div>
       </div>
     </nav>
 
@@ -516,8 +602,9 @@
           let data = await res.json();
 
           if (data.status === "success") {
-            window.location.href = "/dashboard.html";
-          } else if (data.status === "wrong_password") {
+  localStorage.setItem("userEmail", email);
+  window.location.href = "/dashboard.html";
+} else if (data.status === "wrong_password") {
             alert("Incorrect password ❌ Try again");
           } else if (data.status === "no_user") {
             alert("Email not registered ❌ Please signup first");

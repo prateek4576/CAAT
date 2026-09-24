@@ -102,6 +102,9 @@ function loadQuestion() {
   document.getElementById("section-title").innerText = sec.name;
   document.getElementById("question").innerText = q.q;
 
+  document.getElementById("question-progress").innerText =
+  `Question ${currentQuestion + 1} of ${sec.questions.length}`;
+
   let optionsHTML = "";
   q.options.forEach((opt) => {
     let checked =
@@ -181,11 +184,13 @@ function showResult() {
   let science = calculateScore(1);
   let aptitude = calculateScore(2);
 
-  document.getElementById("mathScore").innerText = "Maths: " + math + "/5";
-  document.getElementById("scienceScore").innerText =
-    "Science: " + science + "/5";
-  document.getElementById("aptitudeScore").innerText =
-    "Aptitude: " + aptitude + "/5";
+ document.getElementById("mathScore").innerText = math + "/5";
+
+document.getElementById("scienceScore").innerText =
+  science + "/5";
+
+document.getElementById("aptitudeScore").innerText =
+  aptitude + "/5";
   document.getElementById("totalScore").innerText =
     "Total: " + (math + science + aptitude) + "/15";
 

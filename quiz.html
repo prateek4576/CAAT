@@ -165,8 +165,6 @@
         animation: fadeIn 0.4s ease-out forwards;
       }
 
-      
-
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -188,123 +186,202 @@
       }
 
       /* =========================================
-           SCORECARD / RESULT SCREEN STYLES (HORIZONTAL CERTIFICATE)
-           ========================================= */
+   CAAT SCORECARD
+   ========================================= */
 
-      /* Expand container when scorecard is visible */
       body:has(#result-screen:not([style*="none"])) .container {
         max-width: 950px;
+        padding: 30px;
       }
 
-      /* Certificate Base */
+      /* Main scorecard */
       #result-screen {
-        background: white;
-        padding: 35px;
-        border-radius: var(--radius);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        border: 12px solid #e0e7ff;
-        position: relative;
-        z-index: 1;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 22px;
+        border: 2px solid #e2e8f0;
+        box-shadow: 0 15px 40px rgba(15, 23, 42, 0.15);
+
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
       }
 
-      /* Inner certificate border */
-      #result-screen::after {
-        content: "";
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        right: 8px;
-        bottom: 8px;
-        /* border: 2px solid var(--primary-color); */
-        border-radius: 6px;
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      /* Grid Layout for Horizontal Flow */
-      .result-card {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1.5fr;
-        gap: 15px 25px;
-        align-items: stretch;
-        text-align: left;
-      }
-
-      /* Certificate Title */
-      .result-card > h2 {
-        grid-column: 1 / -1;
+      /* Scorecard title */
+      #result-screen > h2 {
         text-align: center;
         font-size: 2.2rem;
-        margin-top: 5px;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        color: var(--primary-hover);
+        margin: 0 0 25px;
+        color: #1e293b;
       }
 
-      /* Left Column: Student Info */
+      /* Student information */
       #student-info {
-        grid-column: 1 / 2;
-        grid-row: 2 / 5;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
         background: #f8fafc;
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
+        padding: 16px;
+        border-radius: 15px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 18px;
       }
 
       #student-info p {
-        background: #fff;
-        padding: 12px;
-        border-radius: 8px;
-        margin: 8px 0;
+        background: white;
+        padding: 11px;
+        margin: 0;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        color: #4f46e5;
         font-weight: 700;
         text-align: center;
-        color: var(--primary-color);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-        border: 1px solid var(--border-color);
       }
 
-      /* Middle Column: Subject Scores */
-      .result-card .result-row:nth-of-type(1) {
-        grid-column: 2 / 3;
-        grid-row: 2;
-      }
-      .result-card .result-row:nth-of-type(2) {
-        grid-column: 2 / 3;
-        grid-row: 3;
-      }
-      .result-card .result-row:nth-of-type(3) {
-        grid-column: 2 / 3;
-        grid-row: 4;
-      }
-
+      /* Subject score rows */
       .result-row {
-        background: #f1f5f9;
-        border-radius: 12px;
-        padding: 14px 16px;
-        margin: 15px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        padding: 14px 18px;
+        margin: 10px 0;
+
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+
         transition: 0.2s ease;
-        height: fit-content;
-        align-self: center;
       }
 
       .result-row:hover {
-        transform: scale(1.03);
-        background: #e2e8f0;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(15, 23, 42, 0.08);
+      }
+
+      .result-row span:first-child {
+        font-weight: 700;
       }
 
       .result-row span:last-child {
         font-weight: 800;
-        font-size: 1.1rem;
-        color: var(--text-main);
+        color: #1e293b;
       }
 
+      /* Subject colors */
+      .math {
+        color: #f59e0b;
+      }
+
+      .science {
+        color: #10b981;
+      }
+
+      .aptitude {
+        color: #8b5cf6;
+      }
+
+      /* Total score */
+      #result-screen h3#totalScore {
+        margin: 22px 0 18px;
+        padding-top: 20px;
+        border-top: 2px dashed #cbd5e1;
+
+        text-align: center;
+        color: #4f46e5;
+        font-size: 2rem;
+        font-weight: 800;
+      }
+
+      /* Analysis section */
+      #analysis {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        margin-top: 20px;
+      }
+
+      #analysis > h3 {
+        text-align: center;
+        margin: 0 0 15px;
+        color: #1e293b;
+        font-size: 1.4rem;
+      }
+
+      #analysis p {
+        background: white;
+        padding: 12px 14px;
+        margin: 8px 0;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.95rem;
+        color: #334155;
+      }
+
+      /* Overall feedback */
+      #overallFeedback {
+        margin: 18px 0 10px;
+        text-align: center;
+        color: #4f46e5;
+        font-size: 1.2rem;
+        font-weight: 800;
+      }
+
+      /* Career section */
+      #career-section {
+        margin-top: 15px;
+        background: #eef2ff;
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid #c7d2fe;
+      }
+
+      #career-section h3 {
+        margin: 5px 0 8px;
+        color: #4f46e5;
+        font-size: 1.05rem;
+      }
+
+      #career-section p {
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        margin: 6px 0;
+        border: 1px solid #e2e8f0;
+        color: #334155;
+        font-size: 0.9rem;
+      }
+
+      /* Home button area */
+      #result-screen > div:last-child {
+        text-align: center;
+        margin-top: 25px !important;
+      }
+
+      #result-screen > div:last-child button {
+        min-width: 120px;
+      }
+
+      #result-screen {
+        display: block;
+      }
+
+      .result-card {
+        display: block;
+      }
+
+      #student-info {
+        width: 100%;
+      }
+
+      .result-row {
+        width: 100%;
+      }
+
+      #analysis {
+        width: 100%;
+      }
       label {
         display: block;
         text-align: left;
@@ -343,128 +420,6 @@
       }
       .aptitude {
         color: #8b5cf6;
-      }
-
-      /* Left+Middle Span: Total Score */
-      #result-screen h3#totalScore {
-        grid-column: 1 / 3;
-        grid-row: 5;
-        margin-top: 15px;
-        padding-top: 20px;
-        border-top: 2px dashed var(--border-color);
-        color: var(--primary-color);
-        font-size: 1.8rem;
-        font-weight: 800;
-        text-align: center;
-        align-self: end;
-      }
-
-      #result-screen h2 {
-        color: black;
-      }
-
-      /* Right Column: Analysis & Feedback */
-      #analysis {
-        grid-column: 3 / 4;
-        grid-row: 2 / 6;
-        text-align: left;
-        border-left: 2px dashed var(--border-color);
-        padding-left: 25px;
-        margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      #analysis > h3 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        font-size: 1.3rem;
-        color: var(--text-main);
-        text-align: center;
-      }
-
-      #analysis p {
-        background: #f8fafc;
-        padding: 10px 12px;
-        border-radius: 8px;
-        margin: 5px 0;
-        font-size: 0.95rem;
-        border: 1px solid var(--border-color);
-      }
-
-      #overallFeedback {
-        margin-top: 15px;
-        margin-bottom: 5px;
-        font-size: 1.1rem;
-        color: var(--primary-color);
-        text-align: center;
-        font-weight: 700;
-      }
-
-      /* Career Section inside Analysis */
-      #career-section {
-        margin-top: 10px;
-        background: #eef2ff;
-        padding: 12px;
-        border-radius: 10px;
-        border: 1px solid #c7d2fe;
-      }
-
-      #career-section h3 {
-        margin-top: 5px;
-        margin-bottom: 8px;
-        font-size: 1.05rem;
-        color: var(--primary-color);
-        color: blue;
-      }
-
-      #career-section p {
-        background: #ffffff;
-        padding: 10px;
-        border-radius: 6px;
-        margin: 5px 0;
-        border: 1px solid #e2e8f0;
-        font-size: 0.9rem;
-        color: black;
-      }
-
-      @media (max-width: 850px) {
-        .result-card {
-          grid-template-columns: 1fr;
-        }
-        .result-card > h2 {
-          grid-column: 1;
-        }
-        #student-info {
-          grid-column: 1;
-          grid-row: auto;
-        }
-        .result-card .result-row:nth-of-type(1) {
-          grid-column: 1;
-          grid-row: auto;
-        }
-        .result-card .result-row:nth-of-type(2) {
-          grid-column: 1;
-          grid-row: auto;
-        }
-        .result-card .result-row:nth-of-type(3) {
-          grid-column: 1;
-          grid-row: auto;
-        }
-        #result-screen h3#totalScore {
-          grid-column: 1;
-          grid-row: auto;
-        }
-        #analysis {
-          grid-column: 1;
-          grid-row: auto;
-          border-left: none;
-          border-top: 2px dashed var(--border-color);
-          padding-left: 0;
-          padding-top: 20px;
-          margin-top: 15px;
-        }
       }
 
       /* DARK MODE BASE */
@@ -535,6 +490,1070 @@
       .dark #analysis {
         color: #cbd5f5;
       }
+
+      /* =========================================
+   DARK MODE SCORECARD
+   ========================================= */
+
+      .dark #result-screen {
+        background: #111827;
+        border: 2px solid #334155;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .dark #result-screen > h2 {
+        color: #f1f5f9;
+      }
+
+      .dark #student-info {
+        background: #0f172a;
+        border-color: #334155;
+      }
+
+      .dark #student-info p {
+        background: #1e293b;
+        border-color: #334155;
+        color: #60a5fa;
+      }
+
+      .dark .result-row {
+        background: #1e293b;
+        border-color: #334155;
+      }
+
+      .dark .result-row span:last-child {
+        color: #f1f5f9;
+      }
+
+      .dark #result-screen h3#totalScore {
+        color: #818cf8;
+        border-top-color: #475569;
+      }
+
+      .dark #analysis {
+        background: #0f172a;
+        border-color: #334155;
+      }
+
+      .dark #analysis > h3 {
+        color: #f1f5f9;
+      }
+
+      .dark #analysis p {
+        background: #1e293b;
+        border-color: #334155;
+        color: #cbd5e1;
+      }
+
+      .dark #overallFeedback {
+        color: #818cf8;
+      }
+
+      .dark #career-section {
+        background: #172554;
+        border-color: #3730a3;
+      }
+
+      .dark #career-section h3 {
+        color: #93c5fd;
+      }
+
+      .dark #career-section p {
+        background: #1e293b;
+        border-color: #334155;
+        color: #cbd5e1;
+      }
+
+      @media (max-width: 700px) {
+        body:has(#result-screen:not([style*="none"])) .container {
+          padding: 20px 12px;
+        }
+
+        #result-screen {
+          padding: 20px 15px;
+          border-radius: 16px;
+        }
+
+        #result-screen > h2 {
+          font-size: 1.7rem;
+        }
+
+        #student-info {
+          grid-template-columns: 1fr;
+        }
+
+        .result-row {
+          padding: 12px 14px;
+          font-size: 14px;
+        }
+
+        #result-screen h3#totalScore {
+          font-size: 1.6rem;
+        }
+
+        #analysis {
+          padding: 15px;
+        }
+
+        #analysis > h3 {
+          font-size: 1.2rem;
+        }
+
+        #career-section {
+          padding: 12px;
+        }
+      }
+
+      /* =========================================
+   FINAL SCORECARD ALIGNMENT
+   ========================================= */
+
+      body:has(#result-screen:not([style*="none"])) {
+        align-items: flex-start;
+        padding: 30px 20px;
+      }
+
+      /* Outer container */
+      body:has(#result-screen:not([style*="none"])) .container {
+        width: 100%;
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 20px;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      /* Scorecard */
+      #result-screen {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+
+        padding: 28px;
+        box-sizing: border-box;
+
+        border-radius: 20px;
+        border: 2px solid #334155;
+        background: #111827;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      /* Scorecard title */
+      #result-screen > h2 {
+        width: 100%;
+        margin: 0 0 22px;
+        text-align: center;
+        font-size: 2rem;
+        color: #f8fafc;
+      }
+
+      /* Name + Class */
+      #student-info {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+
+        padding: 12px;
+        margin: 0 0 14px;
+
+        box-sizing: border-box;
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 12px;
+      }
+
+      #student-info p {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 10px;
+
+        background: #1e293b;
+        border: 1px solid #475569;
+        border-radius: 8px;
+
+        text-align: center;
+        color: #93c5fd;
+      }
+
+      /* Subject rows */
+      .result-row {
+        width: 100%;
+        box-sizing: border-box;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin: 6px 0;
+        padding: 12px 16px;
+
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 10px;
+      }
+
+      .result-row span:first-child {
+        text-align: left;
+        font-weight: 700;
+      }
+
+      .result-row span:last-child {
+        text-align: right;
+        font-weight: 800;
+        color: #f8fafc;
+      }
+
+      /* Total */
+      #result-screen h3#totalScore {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 18px 0;
+        padding-top: 18px;
+
+        border-top: 2px dashed #475569;
+
+        text-align: center;
+        color: #818cf8;
+        font-size: 1.8rem;
+      }
+
+      /* Analysis */
+      #analysis {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 18px;
+
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 12px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      /* Analysis heading */
+      #analysis > h3 {
+        width: 100%;
+        margin: 0 0 12px;
+
+        text-align: center;
+        color: #f1f5f9;
+        font-size: 1.25rem;
+      }
+
+      /* Analysis messages */
+      #analysis p {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 5px 0;
+        padding: 10px 12px;
+
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 8px;
+
+        text-align: center;
+        color: #cbd5e1;
+        font-size: 0.9rem;
+      }
+
+      /* Overall feedback */
+      #overallFeedback {
+        width: 100%;
+        margin: 14px 0;
+        text-align: center;
+        color: #818cf8;
+        font-weight: 800;
+      }
+
+      /* Suggestions */
+      #career-section {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 10px 0 0;
+        padding: 14px;
+
+        background: #172554;
+        border: 1px solid #3730a3;
+        border-radius: 10px;
+      }
+
+      #career-section h3 {
+        width: 100%;
+        margin: 5px 0 8px;
+
+        text-align: center;
+        color: #93c5fd;
+        font-size: 1rem;
+      }
+
+      #career-section p {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 5px 0;
+        padding: 9px;
+
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 7px;
+
+        text-align: center;
+        color: #cbd5e1;
+      }
+
+      /* Home button */
+      #result-screen > div:last-child {
+        width: 100%;
+        margin-top: 22px !important;
+        text-align: center;
+      }
+
+      #result-screen > div:last-child button {
+        min-width: 120px;
+      }
+
+      /* Mobile */
+      @media (max-width: 700px) {
+        body:has(#result-screen:not([style*="none"])) {
+          padding: 15px 10px;
+        }
+
+        body:has(#result-screen:not([style*="none"])) .container {
+          padding: 10px;
+        }
+
+        #result-screen {
+          padding: 18px 14px;
+          border-radius: 16px;
+        }
+
+        #result-screen > h2 {
+          font-size: 1.6rem;
+        }
+
+        #student-info {
+          grid-template-columns: 1fr;
+        }
+
+        .result-row {
+          padding: 11px 12px;
+          font-size: 14px;
+        }
+
+        #result-screen h3#totalScore {
+          font-size: 1.5rem;
+        }
+
+        #analysis {
+          padding: 14px;
+        }
+      }
+
+/* =========================================
+   FINAL QUIZ UI
+   ========================================= */
+
+body:has(#quiz-screen:not([style*="none"])) .container {
+  max-width: 700px;
+  padding: 40px;
+  border: 2px solid #334155;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+/* Quiz screen */
+#quiz-screen {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0;
+}
+
+/* Section title */
+#quiz-screen h2#section-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 0 12px;
+  padding: 9px 18px;
+
+  border-radius: 50px;
+
+  background: #1e1b4b;
+  border: 1px solid #4f46e5;
+
+  color: #a5b4fc;
+  font-size: 1.5rem;
+}
+
+/* Question counter */
+#question-progress {
+  display: inline-block;
+
+  margin: 0 0 18px;
+  padding: 6px 12px;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Question */
+#quiz-screen h3#question {
+  margin: 5px 0 25px;
+
+  color: #f1f5f9;
+  font-size: 1.45rem;
+  line-height: 1.5;
+}
+
+/* Options */
+#quiz-screen #options {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Option card */
+#quiz-screen .option {
+  width: 100%;
+  max-width: 100%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 62px;
+
+  margin: 0;
+  padding: 14px 18px;
+
+  background: #1e293b;
+  border: 2px solid #475569;
+  border-radius: 14px;
+
+  color: #f1f5f9;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  text-align: left;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Hover */
+#quiz-screen .option:hover {
+  border-color: #818cf8;
+  background: #263449;
+  transform: translateY(-2px);
+}
+
+/* Selected */
+#quiz-screen .option:has(input:checked) {
+  background: #1e1b4b;
+  border-color: #818cf8;
+  box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.15);
+}
+
+/* Radio button */
+#quiz-screen .option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+
+  flex: 0 0 20px;
+
+  margin: 0 15px 0 0;
+
+  padding: 0;
+
+  transform: none;
+
+  accent-color: #818cf8;
+}
+
+/* Option text */
+#quiz-screen .option span {
+  min-width: 0;
+  flex: 1;
+}
+
+/* Buttons */
+.quiz-buttons {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+  margin-top: 28px;
+}
+
+.quiz-buttons button {
+  min-width: 125px;
+
+  margin: 0;
+  padding: 13px 22px;
+
+  border: none;
+  border-radius: 50px;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.quiz-buttons .prev-btn {
+  background: #334155;
+  color: white;
+}
+
+.quiz-buttons .next-btn {
+  background: #6366f1;
+  color: white;
+}
+
+.quiz-buttons .prev-btn:hover {
+  background: #475569;
+}
+
+.quiz-buttons .next-btn:hover {
+  background: #4f46e5;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  body:has(#quiz-screen:not([style*="none"])) .container {
+    width: calc(100% - 20px);
+    max-width: none;
+    padding: 25px 15px;
+    margin: 10px;
+  }
+
+  #quiz-screen h2#section-title {
+    font-size: 1.25rem;
+    padding: 8px 14px;
+  }
+
+  #quiz-screen h3#question {
+    font-size: 1.15rem;
+  }
+
+  #quiz-screen .option {
+    min-height: 55px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .quiz-buttons {
+    gap: 10px;
+  }
+
+  .quiz-buttons button {
+    min-width: 110px;
+    padding: 12px 16px;
+  }
+}
+
+/* =========================================
+   SECTION COMPLETE - CENTER ALIGNMENT
+   ========================================= */
+
+/* =========================================
+   SECTION COMPLETE - TRUE CENTER
+   ========================================= */
+
+body:has(#section-complete:not([style*="none"])) .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 430px;
+  box-sizing: border-box;
+}
+
+#section-complete {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#section-complete h2 {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 0 0 25px;
+  padding: 0;
+
+  text-align: center;
+
+  color: #4f46e5;
+  font-size: 1.7rem;
+  line-height: 1.5;
+}
+
+#section-complete h2::before {
+  content: "✅ ";
+}
+
+#section-complete button {
+  margin: 0;
+  padding: 14px 26px;
+
+  background: #6366f1;
+  color: white;
+
+  border: none;
+  border-radius: 50px;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#section-complete h2 {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 0 0 25px;
+  padding: 0;
+
+  text-align: center;
+
+  color: #4f46e5;
+  font-size: 1.7rem;
+  line-height: 1.5;
+}
+
+#section-complete h2::before {
+  content: "✅ ";
+}
+
+#section-complete button {
+  margin: 0;
+
+  padding: 14px 26px;
+
+  background: #6366f1;
+  color: white;
+
+  border: none;
+  border-radius: 50px;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+
+
+/* =========================================
+   DARK MODE - QUIZ
+   ========================================= */
+
+.dark #quiz-screen h2#section-title {
+  background: #1e1b4b;
+  border-color: #4338ca;
+  color: #a5b4fc;
+}
+
+.dark #question-progress {
+  background: #1e293b;
+  color: #94a3b8;
+}
+
+.dark #quiz-screen h3#question {
+  color: #f1f5f9;
+}
+
+.dark #quiz-screen .option {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+.dark #quiz-screen .option:hover {
+  background: #263449;
+  border-color: #818cf8;
+}
+
+.dark #quiz-screen .option:has(input:checked) {
+  background: #1e1b4b;
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+}
+
+.dark #section-complete h2 {
+  color: #a5b4fc;
+}
+
+.dark .quiz-buttons .prev-btn {
+  background: #334155;
+}
+
+.dark .quiz-buttons .next-btn,
+.dark #section-complete button {
+  background: #6366f1;
+}
+
+@media (max-width: 600px) {
+
+  body:has(#quiz-screen:not([style*="none"])) .container,
+  body:has(#section-complete:not([style*="none"])) .container {
+    max-width: 100%;
+    padding: 25px 15px;
+    margin: 10px;
+  }
+
+  #quiz-screen h2#section-title {
+    font-size: 1.3rem;
+    padding: 8px 14px;
+  }
+
+  #question-progress {
+    font-size: 0.8rem;
+  }
+
+  #quiz-screen h3#question {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+  }
+
+  #quiz-screen .option {
+    min-height: 55px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .quiz-buttons {
+    gap: 10px;
+  }
+
+  .quiz-buttons button {
+    min-width: 110px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+}
+
+/* =========================================
+   QUIZ CARD BORDER
+   ========================================= */
+
+body:has(#quiz-screen:not([style*="none"])) .container {
+  border: 2px solid #334155;
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.15),
+    0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Stronger option borders */
+#quiz-screen .option {
+  border: 2px solid #475569;
+}
+
+/* Option hover */
+#quiz-screen .option:hover {
+  border-color: #818cf8;
+}
+
+/* Selected option */
+#quiz-screen .option:has(input:checked) {
+  border: 2px solid #818cf8;
+  background: #1e1b4b;
+  box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.15);
+}
+
+#quiz-screen {
+  padding: 10px;
+}
+
+
+
+
+
+
+
+/* =========================================
+   LIGHT THEME ONLY
+   DO NOT AFFECT DARK MODE
+   ========================================= */
+
+body:not(.dark) {
+  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+}
+
+/* =========================================
+   LIGHT QUIZ CARD
+   ========================================= */
+
+body:not(.dark):has(#quiz-screen:not([style*="none"])) .container {
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 22px;
+
+  box-shadow:
+    0 15px 35px rgba(15, 23, 42, 0.10),
+    0 0 0 1px rgba(99, 102, 241, 0.05);
+
+  padding: 40px;
+}
+
+/* Section title */
+body:not(.dark) #quiz-screen h2#section-title {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  color: #4f46e5;
+
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+}
+
+/* Question counter */
+body:not(.dark) #question-progress {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+/* Question text */
+body:not(.dark) #quiz-screen h3#question {
+  color: #1e293b;
+}
+
+/* Options */
+body:not(.dark) #quiz-screen .option {
+  background: #f8fafc;
+  border: 2px solid #cbd5e1;
+  color: #1e293b;
+
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+/* Option hover */
+body:not(.dark) #quiz-screen .option:hover {
+  background: #eef2ff;
+  border-color: #818cf8;
+
+  box-shadow:
+    0 5px 15px rgba(99, 102, 241, 0.10);
+}
+
+/* Selected option */
+body:not(.dark) #quiz-screen .option:has(input:checked) {
+  background: #eef2ff;
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.10);
+}
+
+/* Radio button */
+body:not(.dark) #quiz-screen .option input[type="radio"] {
+  accent-color: #6366f1;
+}
+
+/* Previous button */
+body:not(.dark) .quiz-buttons .prev-btn {
+  background: #475569;
+  color: white;
+  box-shadow: 0 5px 12px rgba(71, 85, 105, 0.18);
+}
+
+/* Next button */
+body:not(.dark) .quiz-buttons .next-btn {
+  background: #6366f1;
+  color: white;
+  box-shadow: 0 5px 12px rgba(99, 102, 241, 0.20);
+}
+
+/* =========================================
+   LIGHT SCORECARD
+   ========================================= */
+
+body:not(.dark):has(#result-screen:not([style*="none"])) .container {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Main scorecard */
+body:not(.dark) #result-screen {
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 22px;
+
+  box-shadow:
+    0 15px 35px rgba(15, 23, 42, 0.10),
+    0 0 0 1px rgba(99, 102, 241, 0.05);
+
+  color: #1e293b;
+}
+
+/* Scorecard title */
+body:not(.dark) #result-screen > h2 {
+  color: #1e293b;
+}
+
+/* Student information box */
+body:not(.dark) #student-info {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+/* Name / class */
+body:not(.dark) #student-info p {
+  background: #ffffff;
+  border: 1px solid #dbe3ee;
+  color: #4f46e5;
+
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+/* Subject rows */
+body:not(.dark) .result-row {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+/* Score value */
+body:not(.dark) .result-row span:last-child {
+  color: #1e293b;
+}
+
+/* Total */
+body:not(.dark) #result-screen h3#totalScore {
+  color: #4f46e5;
+  border-top-color: #cbd5e1;
+}
+
+/* Analysis */
+body:not(.dark) #analysis {
+  background: #f8fafc;
+  border: 1px solid #dbe3ee;
+}
+
+/* Analysis heading */
+body:not(.dark) #analysis > h3 {
+  color: #1e293b;
+}
+
+/* Analysis messages */
+body:not(.dark) #analysis p {
+  background: #ffffff;
+  border: 1px solid #dbe3ee;
+  color: #334155;
+}
+
+/* Overall feedback */
+body:not(.dark) #overallFeedback {
+  color: #4f46e5;
+}
+
+/* Suggestions section */
+body:not(.dark) #career-section {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+}
+
+/* Suggestions heading */
+body:not(.dark) #career-section h3 {
+  color: #4f46e5;
+}
+
+/* Suggestions text */
+body:not(.dark) #career-section p {
+  background: #ffffff;
+  border: 1px solid #dbe3ee;
+  color: #334155;
+}
+
+/* Scorecard home button */
+body:not(.dark) #result-screen > div:last-child button {
+  background: #6366f1;
+  color: white;
+  box-shadow: 0 5px 12px rgba(99, 102, 241, 0.20);
+}
+
+/* =========================================
+   LIGHT SECTION COMPLETE
+   ========================================= */
+
+body:not(.dark):has(#section-complete:not([style*="none"])) .container {
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 22px;
+
+  box-shadow:
+    0 15px 35px rgba(15, 23, 42, 0.10),
+    0 0 0 1px rgba(99, 102, 241, 0.05);
+}
+
+body:not(.dark) #section-complete h2 {
+  color: #4f46e5;
+}
+
+body:not(.dark) #section-complete button {
+  background: #6366f1;
+  color: white;
+}
+
+
+
+
+
+/* =========================================
+   DARK MODE CARD BORDERS ONLY
+   ========================================= */
+
+/* About Yourself card */
+.dark:has(#start-screen:not([style*="none"])) .container {
+  border: 2px solid #334155;
+}
+
+/* Section Completed card */
+.dark:has(#section-complete:not([style*="none"])) .container {
+  border: 2px solid #334155;
+}
     </style>
   </head>
   <body>
@@ -552,24 +1571,26 @@
           <input type="text" id="studentClass" placeholder="Enter your class" />
         </div>
 
-         <button onclick="startTest()">📝 Start Test</button>
+        <button onclick="startTest()">📝 Start Test</button>
 
-         <a href="/index.html">
+        <a href="/dashboard.html">
           <button>🏠 Home</button>
         </a>
-
-
-       
       </div>
 
       <div id="quiz-screen" style="display: none">
         <h2 id="section-title"></h2>
+
+        <div id="question-progress">Question 1 of 5</div>
+
         <h3 id="question"></h3>
 
         <div id="options"></div>
 
-        <button onclick="prevQuestion()">Previous</button>
-        <button onclick="nextQuestion()">Next</button>
+        <div class="quiz-buttons">
+          <button class="prev-btn" onclick="prevQuestion()">← Previous</button>
+          <button class="next-btn" onclick="nextQuestion()">Next →</button>
+        </div>
       </div>
 
       <div id="section-complete" style="display: none">
@@ -577,7 +1598,7 @@
         <button onclick="goToNextSection()">Go to Next Section</button>
       </div>
 
-      <div id="result-screen" style="display: none">
+      <div id="result-screen" class="result-card" style="display: none">
         <h2>Scorecard 📊</h2>
 
         <div id="student-info">
@@ -621,7 +1642,7 @@
         </div>
 
         <div style="margin-top: 20px">
-          <a href="/index.html">
+          <a href="/dashboard.html">
             <button>🏠 Home</button>
           </a>
         </div>
